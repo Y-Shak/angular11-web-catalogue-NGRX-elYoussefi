@@ -1,7 +1,7 @@
 import { Product } from "../model/product.model";
 import { ProductsActions, ProductsActionsTypes } from "../ngrx/products.actions";
 import { Action } from "@ngrx/store";
-export interface productsState {
+export interface ProductsState {
     products: Product[],
     errorMessage: string,
     dataState: ProductsStateEnum
@@ -14,15 +14,15 @@ export enum ProductsStateEnum {
     INITIAL = "Initial"
 }
 
-const initState: productsState = {
+const initState: ProductsState = {
     products: [],
     errorMessage: "",
     dataState: ProductsStateEnum.INITIAL
 }
 
 export function productReducer(
-    state: productsState = initState,
-    action: Action): productsState {
+    state: ProductsState = initState,
+    action: Action): ProductsState {
 
     switch (action.type) {
         case ProductsActionsTypes.GET_ALL_PRODUCTS:

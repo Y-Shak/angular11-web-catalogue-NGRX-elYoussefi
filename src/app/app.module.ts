@@ -11,12 +11,18 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductsNavBarComponent } from './components/products/products-nav-bar/products-nav-bar.component';
 import { productReducer } from './ngrx/products.reducer';
 import { ProductsEffects } from './ngrx/products.effects';
+import { ProductsListComponent } from './components/products/products-list/products-list.component';
+import { ProductItemComponent } from './components/products/products-list/product-item/product-item.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    ProductsNavBarComponent
+    ProductsNavBarComponent,
+    ProductsListComponent,
+    ProductItemComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

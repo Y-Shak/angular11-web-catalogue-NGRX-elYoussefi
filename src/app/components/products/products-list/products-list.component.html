@@ -1,0 +1,33 @@
+<div class="container p-4">
+    <h3>Product List : </h3>
+    <ng-container *ngIf="productsState$ | async as state" [ngSwitch]="state.dataState">
+        <ng-container *ngSwitchCase="ProductsStateEnum.INITIAL">
+            <div class="p-2">Initial State</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="ProductsStateEnum.LOADING">
+            <div class="p-2">Loading</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="ProductsStateEnum.ERROR">
+            <div class="p-2 text-danger">Error : {{ state.errorMessage | json}}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="ProductsStateEnum.LOADED">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Selected</th>
+                        <th>Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <app-product-item *ngFor="let product of state.products" style="display: contents;"
+                        [product]="product"></app-product-item>
+
+                </tbody>
+            </table>
+        </ng-container>
+    </ng-container>
+</div>

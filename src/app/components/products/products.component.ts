@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { productsState, ProductsStateEnum } from 'src/app/ngrx/products.reducer';
+import { ProductsState, ProductsStateEnum } from 'src/app/ngrx/products.reducer';
 import { Store } from "@ngrx/store";
 import { map } from 'rxjs/operators';
 
@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class ProductsComponent implements OnInit {
 
-  productsState$!: Observable<productsState>;
-  readonly ProductsStateEnum = ProductsStateEnum;
+  productsState$!: Observable<ProductsState>;
+
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
